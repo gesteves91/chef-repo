@@ -15,7 +15,7 @@ Vagrant.configure('2') do |config|
     chef.chef_server_url = "https://api.opscode.com/organizations/gesteves-ac"
     chef.validation_key_path = "./.chef/gesteves-ac-validator.pem"
     chef.validation_client_name = 'gesteves-ac-validator'
-
+    #chef.version = "12.4.0"
     # Remove the chef server nodes
     chef.delete_node = true
     chef.delete_client = true

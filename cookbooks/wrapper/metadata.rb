@@ -4,7 +4,7 @@ maintainer_email 'YOUR_EMAIL'
 license          'All rights reserved'
 description      'Installs/Configures wrapper'
 long_description IO.read(File.join(File.dirname(__FILE__), 'README.md'))
-version          '0.3.3'
+version          '0.3.4'
 
 depends 'java'
 depends 'apt'
@@ -12,3 +12,4 @@ depends 'windows'
 depends '7-zip'
 depends 'ark'
 depends 'nodejs'
+depends 'runit'
