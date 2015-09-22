@@ -20,4 +20,11 @@ Vagrant.configure('2') do |config|
     chef.delete_node = true
     chef.delete_client = true
   end
+
+  config.vm.network "public_network", ip: "192.168.0.17"
+     #default router
+     config.vm.provision "shell",
+     run: "always",
+     inline: "route add default gw 192.168.0.1"
+
 end
