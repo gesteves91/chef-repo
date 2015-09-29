@@ -1,6 +1,6 @@
 name             'wrapper'
-maintainer       'YOUR_COMPANY_NAME'
-maintainer_email 'YOUR_EMAIL'
+maintainer       'Avenue Code LLC'
+maintainer_email 'gesteves@avenuecode.com'
 license          'All rights reserved'
 description      'Installs/Configures wrapper'
 long_description IO.read(File.join(File.dirname(__FILE__), 'README.md'))

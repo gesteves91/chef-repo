@@ -1,0 +1,43 @@
+# -*- mode: ruby -*-
+# # vi: set ft=ruby :
+
+Vagrant.configure('2') do |config|
+  # config.vm.hostname = 'acmiles-wrapper'
+
+  config.omnibus.chef_version = :latest
+
+  config.vm.box = "dummy"
+  #config.vm.box_url = 'http://opscode-vm-bento.s3.amazonaws.com/vagrant/virtualbox/opscode_ubuntu-14.04_chef-provisionerless.box'
+
+  config.vm.provider :aws do |aws, override|
+    aws.access_key_id = "AKIAJMRPUPAQA5Y3PPUQ"
+    aws.secret_access_key = "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"
+    #aws.session_token = "SESSION TOKEN"
+    aws.availability_zone = 'us-west-1c'
+    aws.region = 'us-west-1'
+    aws.keypair_name = "gesteves"
+    aws.security_groups = ['sg-0c094c69'] 
+    aws.elastic_ip = true
+    aws.subnet_id = "subnet-dbf338be" 
+
+    aws.ami = "ami-c52dd781"
+
+    override.ssh.username = "ubuntu"
+    override.ssh.private_key_path = "/Users/geandersonesteves/.ssh/gesteves.pem"
+  end
+
+  #config.vm.network :private_network, type: 'dhcp'
+  #config.vm.network :public_network
+  config.berkshelf.enabled = true
+
+  config.vm.provision :chef_solo do |chef|
+    chef.run_list = [
+      'recipe[wrapper::default]',
+      'recipe[runit]'
+    ]
+  end
+
+  #config.vm.provision "shell",
+  #run: "always",
+  #inline: "sudo route del default gw 10.0.2.2 ; sudo route add default gw 192.168.0.1"
+end
