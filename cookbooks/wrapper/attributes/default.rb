@@ -6,3 +6,5 @@ default['java']['install_flavor'] = 'oracle'
 default['java']['java_home'] = '/home/vagrant/'
 
 node.override['mongodb']['package_version'] = '3.0.6'
+
+default['git']['version'] = '2.5.3'

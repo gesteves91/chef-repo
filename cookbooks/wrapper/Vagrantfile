@@ -3,16 +3,16 @@
 Vagrant.configure('2') do |config|
   config.vm.box = 'digital_ocean'
 
-  config.ssh.private_key_path = "~/.ssh/id_rsa"
+  config.ssh.private_key_path = "/Users/geandersonesteves/Downloads/id_rsa"
   config.vm.provider :digital_ocean do |provider, override|
-    override.ssh.private_key_path = '~/.ssh/id_rsa'
+    override.ssh.private_key_path = '/Users/geandersonesteves/Downloads/id_rsa'
     override.vm.hostname = "devops"
-    override.ssh.username = "root"
+    override.ssh.username = "ubuntu"
     provider.ssh_key_name = 'Vagrant'
-    provider.token = "37b4ff81ff2fbdc6a6eddfbb69c12fd91c4b3bb7f05ab011b6e03d084ecc7d71"
+    provider.token = "6635d4de4bfe6d16c258773f6df3e888d97f2bad7020a5feaf19cc80b4d16352"
     provider.image = "ubuntu-14-04-x64"
     provider.region = "sfo1"
-    provider.size = "1gb"
+    provider.size = "2gb"
     provider.backups_enabled = true
     provider.private_networking = true
     provider.ipv6 = true

@@ -16,6 +16,7 @@ Vagrant.configure('2') do |config|
               config.vm.network :private_network, type: 'dhcp'
 
                 config.berkshelf.enabled = true
+                config.berkshelf.berksfile_path = "./cookbooks/wrapper/Berksfile" 
 
                   config.vm.provision :chef_solo do |chef|
                     chef.run_list = [

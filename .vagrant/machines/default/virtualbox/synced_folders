@@ -1,0 +1,1 @@
+{"virtualbox":{"/vagrant":{"guestpath":"/vagrant","hostpath":"/Users/geandersonesteves/chef-repo","disabled":false},"v-csc-1":{"id":"v-csc-1","guestpath":"/tmp/vagrant-chef/9b089fd8ae9922600ea44161acc8f9be/cookbooks","hostpath":"/Users/geandersonesteves/.berkshelf/vagrant-berkshelf/shelves/berkshelf20150930-6863-1og7e8z-default","disabled":false}}}
