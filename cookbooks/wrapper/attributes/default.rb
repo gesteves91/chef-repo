@@ -8,3 +8,5 @@ default['java']['java_home'] = '/home/vagrant/'
 node.override['mongodb']['package_version'] = '3.0.6'
 
 default['git']['version'] = '2.5.3'
+
+#node.set['mongodb']['package_name'] = 'mongodb-10gen-server'

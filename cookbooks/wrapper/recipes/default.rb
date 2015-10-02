@@ -17,9 +17,26 @@ include_recipe "nodejs::npm"
 include_recipe "wrapper::java"
 #include_recipe "git::default"
 
-#git_client 'default' do
+#Installing and Configuring MongoDB
+#include_recipe "mongodb::default"
+#include_recipe "mongodb::10gen_repo"
+
+#package node[:mongodb][:package_name] do
+# action :install
+##  version node[:mongodb][:package_version]
+#  options "--nogpgcheck"
+#end
+
+#Installing and configuring MongoDB (latest version)
+include_recipe "mongodb3"
+include_recipe "mongodb3::mongos"
+include_recipe "mongodb3::mms_automation_agent"
+include_recipe "mongodb3::mms_monitoring_agent"
+
+#git_client 'default' dot
 #    action :install
 #end
+
 
 apt_repository 'git' do
   uri          'ppa:git-core/ppa'
@@ -29,6 +46,7 @@ end
 package 'git' do
 	action :install
 end
+
 
 #mongodb_instance "mongodb" do
 #    port node['application']['port']
