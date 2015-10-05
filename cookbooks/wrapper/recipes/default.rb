@@ -15,10 +15,13 @@ include_recipe 'runit'
 #include_recipe "mongodb::default"
 include_recipe "nodejs::npm"
 include_recipe "wrapper::java"
+include_recipe "wrapper::nodejs"
+include_recipe "elkstack"
+#include_recipe "wrapper::nodejs"
 #include_recipe "git::default"
 
 #Installing and Configuring MongoDB
-#include_recipe "mongodb::default"
+#include_recipe "mongodb::defnpm list --depth=0ault"
 #include_recipe "mongodb::10gen_repo"
 
 #package node[:mongodb][:package_name] do
@@ -46,6 +49,8 @@ end
 package 'git' do
 	action :install
 end
+
+
 
 
 #mongodb_instance "mongodb" do
