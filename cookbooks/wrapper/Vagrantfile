@@ -1,33 +1,43 @@
 # -*- mode: ruby -*-
-# vi: set ft=ruby :
+# # vi: set ft=ruby :
+
 Vagrant.configure('2') do |config|
-  config.vm.box = 'digital_ocean'
+  # config.vm.hostname = 'acmiles-wrapper'
 
-  config.ssh.private_key_path = "/Users/geandersonesteves/Downloads/id_rsa"
-  config.vm.provider :digital_ocean do |provider, override|
-    override.ssh.private_key_path = '/Users/geandersonesteves/Downloads/id_rsa'
-    override.vm.hostname = "devops"
+  config.omnibus.chef_version = :latest
+
+  config.vm.box = "dummy"
+  #config.vm.box_url = 'http://opscode-vm-bento.s3.amazonaws.com/vagrant/virtualbox/opscode_ubuntu-14.04_chef-provisionerless.box'
+
+  config.vm.provider :aws do |aws, override|
+    aws.access_key_id = "AKIAJMRPUPAQA5Y3PPUQ"
+    aws.secret_access_key = "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"
+    #aws.session_token = "SESSION TOKEN"
+    aws.availability_zone = 'sa-east-1a'
+    aws.region = 'sa-east-1'
+    aws.keypair_name = "gesteves"
+    aws.security_groups = ['sg-d0129eb5']   
+    aws.elastic_ip = true
+    aws.subnet_id = "subnet-ac28f7c9" 
+
+  aws.ami = "ami-3d3db420"
+
     override.ssh.username = "ubuntu"
-    provider.ssh_key_name = 'Vagrant'
-    provider.token = "6635d4de4bfe6d16c258773f6df3e888d97f2bad7020a5feaf19cc80b4d16352"
-    provider.image = "ubuntu-14-04-x64"
-    provider.region = "sfo1"
-    provider.size = "2gb"
-    provider.backups_enabled = true
-    provider.private_networking = true
-    provider.ipv6 = true
-    provider.setup = true
+    override.ssh.private_key_path = "/Users/geandersonesteves/.ssh/gesteves.pem"
   end
 
+  #config.vm.network :private_network, type: 'dhcp'
+  #config.vm.network :public_network
+  config.berkshelf.enabled = true
 
-  config.vm.provision :chef_client do |chef|
-    chef.node_name = 'DEVOPS'
-    chef.chef_server_url = "https://api.opscode.com/organizations/gesteves-ac"
-    chef.validation_key_path = "~/chef-repo/.chef/gesteves-ac-validator.pem"
-    chef.validation_client_name = 'gesteves-ac-validator'
-
-    # Remove the chef server nodes
-    chef.delete_node = true
-    chef.delete_client = true
+  config.vm.provision :chef_solo do |chef|
+    chef.run_list = [
+      'recipe[wrapper::default]',
+      'recipe[runit]'
+    ]
   end
+
+  #config.vm.provision "shell",
+  #run: "always",
+  #inline: "sudo route del default gw 10.0.2.2 ; sudo route add default gw 192.168.0.1"
 end

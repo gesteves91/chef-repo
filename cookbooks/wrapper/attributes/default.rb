@@ -10,3 +10,7 @@ node.override['mongodb']['package_version'] = '3.0.6'
 default['git']['version'] = '2.5.3'
 
 #node.set['mongodb']['package_name'] = 'mongodb-10gen-server'
+
+default['bower']['version'] = "1.3.12"
+
+default['wrapper']['user'] = "ubuntu"

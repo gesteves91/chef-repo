@@ -21,4 +21,5 @@ depends 'runit', '~> 1.7.2'
 depends 'mongodb3', '~> 2.0.0'
 depends 'git', '~> 4.3'
 depends 'elkstack', '~> 6.0.4'
+depends 'gradle', '~> 1.5.1'
 
