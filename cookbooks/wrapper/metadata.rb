@@ -4,7 +4,7 @@ maintainer_email 'gesteves@avenuecode.com'
 license          'All rights reserved'
 description      'Installs/Configures wrapper'
 long_description IO.read(File.join(File.dirname(__FILE__), 'README.md'))
-version          '0.3.10'
+version          '0.4.1'
 
 depends 'java'
 depends 'apt'
@@ -22,4 +22,5 @@ depends 'mongodb3', '~> 2.0.0'
 depends 'git', '~> 4.3'
 depends 'elkstack', '~> 6.0.4'
 depends 'gradle', '~> 1.5.1'
+depends 'zip', '~> 1.1.0'
 

@@ -36,6 +36,7 @@ include_recipe "mongodb3::mongos"
 include_recipe "mongodb3::mms_automation_agent"
 include_recipe "mongodb3::mms_monitoring_agent"
 include_recipe "gradle"
+include_recipe "zip"
 #git_client 'default' dot
 #    action :install
 #end
