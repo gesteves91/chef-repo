@@ -1,24 +1,20 @@
-metadata.json
-.vagrant
-Berksfile.lock
-Cheffile.lock
 *~
 *#
 .#*
 \#*#
 .*.sw[a-z]
 *.un~
+pkg/
+
+# Berkshelf
+.vagrant
 /cookbooks
-.librarian
-tmp/
+Berksfile.lock
 
 # Bundler
 Gemfile.lock
 bin/*
 .bundle/*
+
 .kitchen/
 .kitchen.local.yml
-
-## ignore ruby versioning?
-.ruby-version
-.ruby-gemset
