@@ -1,0 +1,6 @@
+---
+hostname: 127.0.0.1
+port: '2201'
+username: vagrant
+ssh_key: "/Users/geandersonesteves/chef-repo/cookbooks/foreman/.kitchen/kitchen-vagrant/kitchen-foreman-default-centos-71/.vagrant/machines/default/virtualbox/private_key"
+last_action: create
